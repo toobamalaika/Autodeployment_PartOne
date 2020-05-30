@@ -1,0 +1,22 @@
+name: BootCamp CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Deployment using surge
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install node.js
+      uses: actions/setup-node@v2-beta
+      with:
+        node-version: 12
+    - name: Install Surge
+      run: npm install -g surge
+    - name: Run Surge
+      run: surge ./bootcamp_setup_toobamalaika.surge.sh -- token ${{secrets.BOOTCAMP_SETUP_SECRET}}
