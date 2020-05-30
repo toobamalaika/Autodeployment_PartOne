@@ -19,4 +19,4 @@ jobs:
     - name: Install Surge
       run: npm install -g surge
     - name: Run Surge
-      run: surge ./bootcamp_setup_toobamalaika.surge.sh -- token ${{secrets.BOOTCAMP_SETUP_SECRET}}
+      run: surge ./bootcamp_setup_toobamalaika.surge.sh --token ${{secrets.BOOTCAMP_SETUP_SECRET}}
